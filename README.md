@@ -1,1 +1,1 @@
-# liri-node-app-inquirer
+# liri-node-app
