@@ -1,0 +1,5 @@
+[Saturday, June 17, 2017 11:41 PM] "Action: my-tweets" "Input: " "Status:200"
+[Saturday, June 17, 2017 11:42 PM] "Action: spotify-this-song" "Input: Ave Maria" "Status:200"
+[Saturday, June 17, 2017 11:43 PM] "Action: spotify-this-song" "Input: The Sign Ace of Base" "Status:200"
+[Saturday, June 17, 2017 11:43 PM] "Action: spotify-this-song" "Input: The Sign Ace of Base" "Status:200"
+[Saturday, June 17, 2017 11:43 PM] "Action: movie-this" "Input: Mr. Nobody." "Status:200"

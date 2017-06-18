@@ -6,20 +6,72 @@
 	var request = require('request');
 	var fs = require('fs');
 	var moment = require('moment');
+	var inquirer = require("inquirer");
  
 	// Assigning keys to variable client
 	var client = new Twitter(keys.twitterKeys);
 	var spotify = new Spotify(keys.spotifyKeys);
 
-	var action = process.argv[2];
-	var input = process.argv[3];
+	var action;
+	var input;
 
-	if(action!=="do-what-it-says"){
+// Create a "Prompt" with a series of questions.
+inquirer
+  .prompt([
+    // Here we create a basic text prompt.
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "username"
+    },
+    {
+      type: "list",
+      message: "How can I help you today? \n The available commands are:",
+      choices: ["my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"],
+      name: "action"
+    },
+    // Here we ask the user to confirm.
+    {
+      type: "confirm",
+      message: "Are you sure:",
+      name: "confirm",
+      default: true
+    },
+    {
+      type: "input",
+      message: "What are you searching for? (Leave blank for \"my-tweets\" and \"do-what-it-says\"",
+      name: "input"
+    },
+    {
+      type: "confirm",
+      message: "Are you sure:",
+      name: "confirm",
+      default: true
+    }
+
+  ])
+  .then(function(inquirerResponse) {
+    
+    // If the inquirerResponse confirms, we displays the inquirerResponse's username and pizza choice(s) from the answers.
+    if (inquirerResponse.confirm) {
+      
+      console.log("\nWelcome " + inquirerResponse.username);
+      console.log("chosen action: "+inquirerResponse.action);
+
+      action = inquirerResponse.action; 
+      input = inquirerResponse.input; 
+
+      if(action!=="do-what-it-says"){
 		init(action);
-	}
-	else{
+	  }
+	  else{
 		dowhat();
-	}
+	  }
+    }
+    else {
+      console.log("\nThat's okay " + inquirerResponse.username + ", come again when you require my assistance.\n");
+    }
+  });
 
 	function init(action, input){
 		// We will then create a switch-case statement (if-then would also work).
@@ -81,7 +133,7 @@
 
 	function spotifyThis(){
 		var statusCode;
-		if(input==undefined){
+		if(input==undefined || input==""){
 			//* If no song is provided then your program will default to "The Sign" by Ace of Base.
 			input = "The Sign Ace of Base";
 		}		
