@@ -13,7 +13,7 @@ To run this application you will need Node.JS and NPM installed on your system.
 ### Installing
 First, clone the project:
 ```
-git clone https://github.com/novialim/liri-node-app.git
+git clone https://github.com/novialim/liri-node-app-inquirer.git
 ```
 
 
