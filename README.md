@@ -33,7 +33,7 @@ Get information about a movie: `node liri movie-this [movie]`
 Run any commands you have run in the past: `node liri do-what-it-says`
 
 
-All commands are logged to the `random.txt` file.
+All commands are logged to the `log.txt` file.
 
 
 ## Built With
