@@ -1,6 +1,6 @@
 # LIRI Node Application (Language Interpretation and Recognition Interface)
 
-In week 11, we built a node application to accept command line arguments and connect to multiple APIs to grab data in JSON format.
+In week 10, we built a node application to accept command line arguments and connect to multiple APIs to grab data in JSON format.
 
 ## Getting Started
 
